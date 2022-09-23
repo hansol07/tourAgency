@@ -24,9 +24,7 @@ public class LoginService implements UserDetailsService {
     public Optional<LoginUser> findById(String loginId){
         return loginRepository.findById(loginId);
     }
-    public Optional<UserInfo> findUserInfoByMbrId(String mbrId){
-        return loginRepository.findUserInfoByMbrId(mbrId);
-    }
+
 
     public LoginUserDto findUserByLoginId(String loginId){
         LoginUser loginUser = loginRepository.findUserByLoginId(loginId).orElseThrow(NoMemberException::new);
