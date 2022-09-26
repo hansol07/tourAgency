@@ -13,8 +13,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
+
+import com.agency.tour.service.LoginService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,18 +26,28 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
    
-	private final CustomAuthenticationProvider authProvider;
 
     private final AuthSuccessHandler authSuccessHandler;
+    private final LoginService userDetailsService;
     private final AuthFailureHandler authFailureHandler;
 
-
+    @Bean
+    public BCryptPasswordEncoder encoderPwd() {
+        return new BCryptPasswordEncoder();
+    }
+    
+    // CustomAuthenticationProvider 빈 등록
+    @Bean
+    public CustomAuthenticationProvider customAuthenticationProvider() {
+        return new CustomAuthenticationProvider(userDetailsService, encoderPwd());
+    }
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	 http
          .csrf().disable()
          .authorizeRequests()
-         .antMatchers("/login","/js/*", "/css/*", "/img/*", "/test/failAuth", "/test/failSso","/verify/*").permitAll()
+         .antMatchers("/login","/js/*", "/css/*", "/img/*","/join").permitAll()
          .anyRequest().hasRole("USER")
          .and()
          .formLogin()
@@ -63,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 */
 @Override
 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
- auth.authenticationProvider(authProvider);
+ auth.authenticationProvider(customAuthenticationProvider());
 }
 
 @Bean	//전한솔 (중복로그인 방지)
