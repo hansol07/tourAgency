@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          .successHandler(authSuccessHandler)
          .failureHandler(authFailureHandler)
          .usernameParameter("loginId")
-         .passwordParameter("loginPassword")
+         .passwordParameter("pwd")
          .and()
          .logout()
          .invalidateHttpSession(true)

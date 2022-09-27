@@ -1,5 +1,9 @@
 package com.agency.tour.domain;
 
 public enum Role {
-	ROLE_USER, ROLE_MANAGER, ROLE_ADMIN
+	user("ROLE_USER"), admin("ROLE_ADMIN");
+
+	Role(String string) {
+		// TODO Auto-generated constructor stub
+	}
 }

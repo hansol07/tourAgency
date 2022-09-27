@@ -1,11 +1,24 @@
 package com.agency.tour.controller;
 
+import java.security.Principal;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.agency.tour.dto.JoinDto;
+import com.agency.tour.service.JoinService;
 @Controller
 public class MainController {
-
-    @GetMapping("/login")
+	@Autowired
+	private JoinService jService;
+	@GetMapping("/")
+	public String main(Principal principal) {
+		System.out.println(principal.getName());
+		return "index";
+	}
+	@GetMapping("/login")
     public String login() {
         return "login";
     }
@@ -13,4 +26,10 @@ public class MainController {
     public String join() {
         return "join";
     }
+    @PostMapping("/join")
+    public String joinForm(JoinDto dto) {
+    	jService.join(dto);
+    	return "redirect:/";
+    }
+   
 }
