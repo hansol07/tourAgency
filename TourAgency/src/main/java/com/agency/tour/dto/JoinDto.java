@@ -13,7 +13,7 @@ public class JoinDto {
 	private String pwd;
 	private String email;
 	private String name;
-	private final String role =Role.user.toString();
+	private final String role =Role.ROLE_USER.toString();
 	private final String isLock="N";
 	@Override
 	public String toString() {

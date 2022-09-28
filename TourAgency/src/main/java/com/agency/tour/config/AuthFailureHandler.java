@@ -26,7 +26,7 @@ public class AuthFailureHandler implements AuthenticationFailureHandler {
         response.setCharacterEncoding("UTF-8");
 
         String errorMsg = "아이디나 패스워드가 올바르지않습니다.";
-
+        System.out.println(errorMsg);
         response.getWriter().print(errorMsg);
         response.getWriter().flush();
 
