@@ -1,5 +1,6 @@
 package com.agency.tour.domain;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+
 
 @Getter
 @Entity
@@ -31,18 +32,24 @@ public class LoginUser {
     private String name;
     @NotBlank
     private String email;
+    @NotBlank
     private String role;	//ROLE_USER , ROLE_ADMIN
+	private String phone;
+	private Date birth;
+	private String sex;
     @CreationTimestamp
     private Timestamp regDt;
     @UpdateTimestamp
     private Timestamp updDt;
     private String isLock;
-
-    @Override
+	@Override
 	public String toString() {
 		return "LoginUser [loginId=" + loginId + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", role="
-				+ role + ", regDt=" + regDt + ", updDt=" + updDt + ", islock=" + isLock + "]";
+				+ role + ", phone=" + phone + ", birth=" + birth + ", sex=" + sex + ", regDt=" + regDt + ", updDt="
+				+ updDt + ", isLock=" + isLock + "]";
 	}
+
+
 	
  
 

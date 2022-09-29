@@ -1,5 +1,7 @@
 package com.agency.tour.dto;
 
+import java.sql.Date;
+
 import com.agency.tour.domain.Role;
 
 import lombok.Getter;
@@ -12,6 +14,9 @@ public class JoinDto {
 	private String loginId;
 	private String pwd;
 	private String email;
+	private String phone;
+	private Date birth;
+	private String sex;
 	private String name;
 	private final String role =Role.ROLE_USER.toString();
 	private final String isLock="N";

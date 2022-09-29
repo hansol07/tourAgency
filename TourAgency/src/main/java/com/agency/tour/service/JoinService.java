@@ -24,6 +24,9 @@ public class JoinService {
 							.name(dto.getName())
 							.isLock(dto.getIsLock())
 							.role(dto.getRole())
+							.birth(dto.getBirth())
+							.sex(dto.getSex())
+							.phone(dto.getPhone())
 							.build();
 		mRepo.save(user);
 		System.out.println(user);
