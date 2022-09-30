@@ -42,6 +42,7 @@ public class LoginUser {
     @UpdateTimestamp
     private Timestamp updDt;
     private String isLock;
+    private String isActive;
 	@Override
 	public String toString() {
 		return "LoginUser [loginId=" + loginId + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", role="

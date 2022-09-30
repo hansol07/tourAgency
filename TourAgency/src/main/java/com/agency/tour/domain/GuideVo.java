@@ -26,7 +26,7 @@ public class GuideVo {
 	private String email;
 	private String phone;
 	private String introduce;
-	private String isLock;
+	private String isActive;
     @CreationTimestamp
     private Timestamp regDt;
     @UpdateTimestamp
