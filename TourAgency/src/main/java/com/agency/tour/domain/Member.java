@@ -9,8 +9,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.RequiredArgsConstructor;
 @Data
 @EqualsAndHashCode(of = "loginId")
+
 public class Member implements UserDetails {
 
     private static final long serialVersionUID = 174726374856727L;
