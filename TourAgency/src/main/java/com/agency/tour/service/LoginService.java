@@ -23,7 +23,7 @@ public class LoginService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String loginId) {
 
-    	LoginUser user= memberRepository.findById(loginId).orElseThrow(() -> new NoMemberException());
+    	LoginUser user= memberRepository.findByLoginId(loginId).orElseThrow(() -> new NoMemberException());
     
         return new Member(user);
     }

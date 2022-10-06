@@ -1,9 +1,17 @@
 package com.agency.tour.domain;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -17,11 +25,13 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @Builder
+@SequenceGenerator(name="Guide_SEQ_GENERATOR",sequenceName = "Guide_SEQ" ,initialValue = 1,allocationSize = 1)
 @AllArgsConstructor
 @NoArgsConstructor
-public class GuideVo {
+public class GuideVo extends BaseEntity{
 
 	@Id
+	@GeneratedValue(strategy = GenerationType. SEQUENCE, generator = "Guide_SEQ_GENERATOR")
 	private Long id;
 	@NotBlank
 	private String name;
@@ -31,11 +41,11 @@ public class GuideVo {
 	@NotBlank
 	private String introduce;
 	private String isActive;
-    @CreationTimestamp
-    private Timestamp regDt;
-    @UpdateTimestamp
-    private Timestamp updDt;
+ 
     private String updateId;
     private String createId;
     
+    @OneToMany(mappedBy = "guide", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @Builder.Default
+    private List<GuideFileVo> guideFileVo = new ArrayList<>();
 }
