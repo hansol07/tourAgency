@@ -43,6 +43,7 @@ public class GuideVo extends BaseEntity{
     private String updateId;
     private String createId;
     
+    
     @OneToMany(mappedBy = "guide", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @Builder.Default
     private List<GuideFileVo> guideFileVo = new ArrayList<>();

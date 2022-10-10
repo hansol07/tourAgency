@@ -33,6 +33,8 @@ public class TourVo extends BaseEntity{
 	private String price;
 	private Date startDate;
 	private Date endDate;
+	private int maximunNum;
+	private int minimunNum;
 	private String isOneday;
 	private String includeContents;
 	private String notIncludeContents;
