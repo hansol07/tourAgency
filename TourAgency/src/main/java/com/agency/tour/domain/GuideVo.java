@@ -38,8 +38,8 @@ public class GuideVo extends BaseEntity{
 	private String phone;
 	@NotBlank
 	private String introduce;
-	private String isActive;
  
+	private String isActive;
     private String updateId;
     private String createId;
     

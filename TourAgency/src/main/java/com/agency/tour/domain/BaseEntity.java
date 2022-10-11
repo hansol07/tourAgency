@@ -22,6 +22,7 @@ import lombok.Setter;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 
+
 	@CreationTimestamp
 	private Timestamp createDate;
 	@UpdateTimestamp
