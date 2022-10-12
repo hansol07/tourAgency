@@ -34,6 +34,6 @@ public class GuideFileVo extends BaseEntity{
 	private GuideVo guide;
 	
     private String isActive;
-    private String updateId;
-    private String createId;
+    private long updateId;
+    private long createId;
 }

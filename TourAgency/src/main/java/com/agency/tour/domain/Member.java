@@ -57,11 +57,9 @@ public class Member implements UserDetails {
         return this.user.getLoginId();
     }
 
-
-    public String getMbrNm() {
-    	return  this.user.getName();
+    public long getId() {
+    	return this.user.getId();
     }
-
 
 
     public String getEmail(){

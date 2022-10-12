@@ -40,8 +40,8 @@ public class GuideVo extends BaseEntity{
 	private String introduce;
  
 	private String isActive;
-    private String updateId;
-    private String createId;
+    private long updateId;
+    private long createId;
     
     
     @OneToMany(mappedBy = "guide", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)

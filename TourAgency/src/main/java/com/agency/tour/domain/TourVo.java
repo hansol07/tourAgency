@@ -30,7 +30,7 @@ public class TourVo extends BaseEntity{
 	private long id;
 	private String title;
 	private String introduce;
-	private String price;
+	private int price;
 	private Date startDate;
 	private Date endDate;
 	private int maximunNum;
@@ -46,8 +46,8 @@ public class TourVo extends BaseEntity{
     private List<TourFileVo> tourFileList = new ArrayList<>();
 	
 	private String isActive;
-    private String updateId;
-    private String createId;
+    private long updateId;
+    private long createId;
 	
 	
 }

@@ -1,13 +1,11 @@
 package com.agency.tour.domain;
 
-
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
@@ -18,20 +16,22 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @Builder
-@SequenceGenerator(name="TourFile_SEQ_GENERATOR",sequenceName = "TourFile_SEQ" ,initialValue = 1,allocationSize = 1)
 @AllArgsConstructor
+@SequenceGenerator(name="Review_SEQ_GENERATOR",sequenceName = "Review_SEQ" ,initialValue = 1,allocationSize = 1)
 @NoArgsConstructor
-public class TourFileVo extends BaseEntity {
+public class ReviewVo extends BaseEntity{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType. SEQUENCE, generator = "TourFile_SEQ_GENERATOR")
+	@GeneratedValue(strategy = GenerationType. SEQUENCE, generator = "Review_SEQ_GENERATOR")
 	private long id;
-	private String filePath;
+	private long loginId;
+	private int score;
+	private String contents;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private TourVo tourVo;
+	@OneToOne(fetch = FetchType.LAZY)
+	private ReservationVo reservationVo;
 	
-    private String isActive;
+	private String isActive;
     private long updateId;
     private long createId;
 }
