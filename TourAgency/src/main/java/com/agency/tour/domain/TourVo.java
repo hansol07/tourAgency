@@ -33,6 +33,7 @@ public class TourVo extends BaseEntity{
 	private int price;
 	private Date startDate;
 	private Date endDate;
+	private Date endReservationDay;
 	private int maximunNum;
 	private int minimunNum;
 	private String isOneday;
@@ -40,6 +41,7 @@ public class TourVo extends BaseEntity{
 	private String notIncludeContents;
 	private String course;
 	private String timeInformation;
+	private int currentPeople;
 	
 	@OneToMany(mappedBy = "tourVo", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @Builder.Default

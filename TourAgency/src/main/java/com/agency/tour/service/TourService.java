@@ -31,6 +31,8 @@ public class TourService {
 						.course(dto.getCourse())
 						.timeInformation(dto.getTimeInformation())
 						.isActive("Y")
+						.endReservationDay(dto.getEndReservationDay())
+						.currentPeople(0)
 						.createId(id)
 						.updateId(id)
 						.build();

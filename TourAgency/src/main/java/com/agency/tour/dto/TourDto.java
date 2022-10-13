@@ -14,6 +14,7 @@ public class TourDto {
 	private int price;
 	private Date startDate;
 	private Date endDate;
+	private Date endReservationDay;
 	private int maximunNum;
 	private int minimunNum;
 	private String isOneday;
