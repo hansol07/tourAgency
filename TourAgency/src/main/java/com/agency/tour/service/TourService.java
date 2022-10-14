@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.agency.tour.domain.TourVo;
 import com.agency.tour.dto.TourDto;
+import com.agency.tour.global.ActiveEnum;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.TourRepository;
 
@@ -30,7 +31,7 @@ public class TourService {
 						.includeContents(dto.getIncludeContents())
 						.course(dto.getCourse())
 						.timeInformation(dto.getTimeInformation())
-						.isActive("Y")
+						.isActive(ActiveEnum.Y.toString())
 						.endReservationDay(dto.getEndReservationDay())
 						.currentPeople(0)
 						.createId(id)
@@ -41,6 +42,6 @@ public class TourService {
 	}
 	
 	public List<TourVo> getTourList() {
-		return tourRepository.findAllByIsActive("Y");	
+		return tourRepository.findAllByIsActive(ActiveEnum.Y.toString());	
 	}
 }
