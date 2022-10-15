@@ -39,8 +39,7 @@ public class ReservationVo extends BaseEntity{
 	
     @OneToOne(mappedBy = "reservationVo", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private ReviewVo reviewVo;
-	
-    
+	   
 	private String isActive;
     private long updateId;
     private long createId;
