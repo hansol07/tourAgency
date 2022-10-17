@@ -23,7 +23,7 @@
   <tbody>
     <tr th:each="list,i: ${list}">
       <th th:text="${i.count}"></th>
-      <td th:text="${list.title}"></td>
+      <td><a th:text="${list.title}" th:href="@{/tour/detail/{id} (id=${list.id})}"></a></td>
       <td  th:text="${list.startDate}"></td>
       <td  th:text="${list.endDate}"></td>
       <td  th:text="${list.currentPeople}"></td>
@@ -32,6 +32,5 @@
   </tbody>
 </table>
 
-<a href="/tour/register">투어 등록</a>
 </body>
 </html>

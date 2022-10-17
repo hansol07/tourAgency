@@ -44,4 +44,8 @@ public class TourService {
 	public List<TourVo> getTourList() {
 		return tourRepository.findAllByIsActive(ActiveEnum.Y.toString());	
 	}
+	public TourVo getTourDetailList(String id) {
+		long tourId = Long.parseLong(id);
+		return tourRepository.findById(tourId).orElse(null);
+	}
 }
