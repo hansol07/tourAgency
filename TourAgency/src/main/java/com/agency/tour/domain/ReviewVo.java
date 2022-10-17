@@ -28,8 +28,8 @@ public class ReviewVo extends BaseEntity{
 	private int score;
 	private String contents;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	private ReservationVo reservationVo;
+
+	private long reservationId;
 	
 	private String isActive;
     private long updateId;
