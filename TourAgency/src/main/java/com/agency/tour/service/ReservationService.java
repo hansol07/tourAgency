@@ -1,5 +1,7 @@
 package com.agency.tour.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,17 +12,20 @@ import com.agency.tour.global.ActiveEnum;
 import com.agency.tour.global.ReservationStatus;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.ReservationRepository;
+import com.agency.tour.repository.TourRepository;
 
 @Service
 public class ReservationService {
 
 	@Autowired
 	private ReservationRepository reservationRepository;
+	@Autowired
+	private TourRepository tourRespository;
 	
 	public ResponseCode reservationTour(TourReservationDto dto, Member member) {
 		ReservationVo reservation = ReservationVo.builder()
 										.countPeople(dto.getCountPeople())
-										.tourId(dto.getTourId())
+										.tourVo(tourRespository.findById(dto.getTourId()).orElse(null))
 										.requireMent(dto.getRequireMent())
 										.reservationStatus(ReservationStatus.APPLY.toString())
 										.userId(member.getId())
@@ -30,5 +35,10 @@ public class ReservationService {
 										.build();
 		reservationRepository.save(reservation);
 		return ResponseCode.OK;
+	}
+
+	public List<ReservationVo> findMyReservation(Member member) {
+		return reservationRepository.findAllByUserIdAndIsActive(member.getId(),ActiveEnum.Y.toString());
+		
 	}
 }

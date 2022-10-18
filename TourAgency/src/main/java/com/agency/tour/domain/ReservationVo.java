@@ -2,10 +2,10 @@ package com.agency.tour.domain;
 
 
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
@@ -28,7 +28,9 @@ public class ReservationVo extends BaseEntity{
 	private int countPeople;
 	private long userId;
 	private String reservationStatus;
-	private long tourId;
+	
+	@ManyToOne
+	private TourVo tourVo;
 	private String requireMent;
 
 	   

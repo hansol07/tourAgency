@@ -3,6 +3,8 @@ package com.agency.tour.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.agency.tour.domain.Member;
@@ -19,5 +21,10 @@ public class ReservationController {
 	public String reservationTour(TourReservationDto dto, @AuthenticationPrincipal Member member) {
 		reservationService.reservationTour(dto, member);
 		return "redirect:/tour/";
+	}
+	@GetMapping("/tour/reservation")
+	public String reservationList(@AuthenticationPrincipal Member member, Model model) {
+		model.addAttribute("list",reservationService.findMyReservation(member));
+		return "/reservation/myreservationList";
 	}
 }
