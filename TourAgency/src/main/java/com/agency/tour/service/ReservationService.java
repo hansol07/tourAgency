@@ -41,4 +41,12 @@ public class ReservationService {
 		return reservationRepository.findAllByUserIdAndIsActive(member.getId(),ActiveEnum.Y.toString());
 		
 	}
+
+	public ResponseCode cancelReservation(Member member, String id) {
+		ReservationVo reservation=reservationRepository.findById(Long.parseLong(id)).orElse(null);
+		reservation.setIsActive(ActiveEnum.N.toString());
+		reservation.setUpdateId(member.getId());
+		reservationRepository.save(reservation);
+		return ResponseCode.OK;
+	}
 }

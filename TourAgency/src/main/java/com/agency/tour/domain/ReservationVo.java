@@ -37,5 +37,12 @@ public class ReservationVo extends BaseEntity{
 	private String isActive;
     private long updateId;
     private long createId;
+	public void setIsActive(String isActive) {
+		this.isActive = isActive;
+	}
+	public void setUpdateId(long updateId) {
+		this.updateId = updateId;
+	}
 	
+    
 }

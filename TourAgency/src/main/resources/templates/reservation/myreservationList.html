@@ -19,6 +19,7 @@
       <th scope="col">투어종료날짜</th>
       <th scope="col">신청인원</th>
       <th scope="col">예약상태</th>
+      <th scope="col">예약취소</th>
     </tr>
   </thead>
   <tbody>
@@ -29,6 +30,7 @@
       <td  th:text="${list.tourVo.endDate}"></td>
       <td  th:text="${list.countPeople}"></td>
       <td  th:text="${list.reservationStatus}"></td>
+      <td ><a th:href="@{/tour/reservation/cancel/{id} (id=${list.id})}">예약취소</a></td>
     </tr>
 
   </tbody>

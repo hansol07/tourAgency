@@ -5,7 +5,9 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.agency.tour.domain.Member;
 import com.agency.tour.dto.TourReservationDto;
@@ -26,5 +28,10 @@ public class ReservationController {
 	public String reservationList(@AuthenticationPrincipal Member member, Model model) {
 		model.addAttribute("list",reservationService.findMyReservation(member));
 		return "/reservation/myreservationList";
+	}
+	@GetMapping("/tour/reservation/cancel/{id}")
+	public String deleteReservation(@AuthenticationPrincipal Member member, @PathVariable String id) {
+		reservationService.cancelReservation(member,id);
+		return "redirect:/tour/reservation";
 	}
 }
