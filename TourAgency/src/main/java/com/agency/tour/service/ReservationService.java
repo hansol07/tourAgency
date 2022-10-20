@@ -39,7 +39,6 @@ public class ReservationService {
 
 	public List<ReservationVo> findMyReservation(Member member) {
 		return reservationRepository.findAllByUserIdAndIsActive(member.getId(),ActiveEnum.Y.toString());
-		
 	}
 
 	public ResponseCode cancelReservation(Member member, String id) {
