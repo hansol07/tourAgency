@@ -23,13 +23,13 @@ public class TourController {
 	public String tourRegister() {
 		return "tour/tourRegister";
 	}
-	@GetMapping("/tour/")
+	@GetMapping("/tour")
 	public String tour(Model model) {
 		model.addAttribute("list",tourService.getTourList());
 		return "tour/tourList";
 	}
 	@PostMapping("/tour/register")
-	public String joinForm(TourDto dto,@AuthenticationPrincipal Member member) {
+	public String joinForm(TourDto dto, @AuthenticationPrincipal Member member) {
 		tourService.registerTour(dto,member.getId());
 		return "redirect:/";
 	}
@@ -37,5 +37,10 @@ public class TourController {
 	public String tourDetail(@PathVariable String id, Model model) {
 		model.addAttribute("list",tourService.getTourDetailList(id));
 		return "tour/tourDetail";
+	}
+	@GetMapping("/tour/deleteTour/{id}")
+	public String deleteTour(@AuthenticationPrincipal Member member, @PathVariable String id) {
+		tourService.deleteTour(member, id);
+		return "redirect:/tour/";
 	}
 }

@@ -51,5 +51,13 @@ public class TourVo extends BaseEntity{
     private long updateId;
     private long createId;
 	
+    
+    public void setIsActive(String isActive) {
+		this.isActive = isActive;
+	}
+	public void setUpdateId(long updateId) {
+		this.updateId = updateId;
+	}
+	
 	
 }

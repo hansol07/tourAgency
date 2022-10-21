@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.agency.tour.domain.Member;
+import com.agency.tour.domain.ReservationVo;
 import com.agency.tour.domain.TourVo;
 import com.agency.tour.dto.TourDto;
 import com.agency.tour.global.ActiveEnum;
@@ -48,4 +50,12 @@ public class TourService {
 		long tourId = Long.parseLong(id);
 		return tourRepository.findById(tourId).orElse(null);
 	}
+	public ResponseCode deleteTour(Member member, String id) {
+		TourVo tour=tourRepository.findById(Long.parseLong(id)).orElse(null);
+		tour.setIsActive(ActiveEnum.N.toString());
+		tour.setUpdateId(member.getId());
+		tourRepository.save(tour);
+		return ResponseCode.OK;
+	}
 }
+
