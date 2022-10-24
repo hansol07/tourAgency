@@ -1,8 +1,9 @@
 package com.agency.tour.domain;
 
 import java.sql.Date;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
+import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,15 +36,34 @@ public class TourVo extends BaseEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType. SEQUENCE, generator = "Tour_SEQ_GENERATOR")
 	private long id;
+	@NotBlank
 	private String title;
+	@NotBlank
 	private String introduce;
+	
+	@Min(value=0)
+	@NotBlank
 	private int price;
+	
+	@Future
+	@NotBlank
 	private Date startDate;
+	@Future
 	private Date endDate;
+	@FutureOrPresent
+	@NotBlank
 	private Date endReservationDay;
+	
+	@NotBlank
+	@Min(value=0)
 	private int maximunNum;
+	@Min(value=0)
+	@NotBlank
 	private int minimunNum;
+	
+	@NotNull
 	private String isOneday;
+	
 	private String includeContents;
 	private String notIncludeContents;
 	private String course;

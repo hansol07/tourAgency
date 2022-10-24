@@ -12,8 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,6 +34,7 @@ public class GuideVo extends BaseEntity{
 	@NotBlank
 	private String name;
 	@NotBlank
+	@Email
 	private String email;
 	private String phone;
 	@NotBlank

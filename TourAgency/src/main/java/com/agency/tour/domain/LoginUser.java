@@ -1,18 +1,14 @@
 package com.agency.tour.domain;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,9 +34,11 @@ public class LoginUser extends BaseEntity{
     @NotBlank
     private String name;
     @NotBlank
+    @Email
     private String email;
     @NotBlank
     private String role;	//ROLE_USER , ROLE_ADMIN
+    
 	private String phone;
 	private Date birth;
 	private String sex;
