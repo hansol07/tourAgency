@@ -1,4 +1,4 @@
-package com.agency.tour.requestDto;
+package com.agency.tour.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

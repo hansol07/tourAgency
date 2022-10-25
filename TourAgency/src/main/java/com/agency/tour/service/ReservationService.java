@@ -12,7 +12,7 @@ import com.agency.tour.global.ReservationStatus;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.ReservationRepository;
 import com.agency.tour.repository.TourRepository;
-import com.agency.tour.requestDto.TourReservationRequestDto;
+import com.agency.tour.request.TourReservationRequestDto;
 
 @Service
 public class ReservationService {

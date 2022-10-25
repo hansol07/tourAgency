@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.agency.tour.domain.Member;
-import com.agency.tour.requestDto.TourRequestDto;
+import com.agency.tour.request.TourRequestDto;
 import com.agency.tour.service.TourService;
 
 @Controller

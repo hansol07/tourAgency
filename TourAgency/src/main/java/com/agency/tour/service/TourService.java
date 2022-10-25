@@ -11,7 +11,7 @@ import com.agency.tour.domain.TourVo;
 import com.agency.tour.global.ActiveEnum;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.TourRepository;
-import com.agency.tour.requestDto.TourRequestDto;
+import com.agency.tour.request.TourRequestDto;
 
 @Service
 public class TourService {

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.agency.tour.domain.Member;
-import com.agency.tour.requestDto.JoinRequestDto;
+import com.agency.tour.request.JoinRequestDto;
 import com.agency.tour.service.JoinService;
 @Controller
 public class MainController {

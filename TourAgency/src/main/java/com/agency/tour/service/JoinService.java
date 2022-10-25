@@ -8,7 +8,7 @@ import com.agency.tour.domain.LoginUser;
 import com.agency.tour.domain.Role;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.MemberRepository;
-import com.agency.tour.requestDto.JoinRequestDto;
+import com.agency.tour.request.JoinRequestDto;
 
 @Service
 public class JoinService {
