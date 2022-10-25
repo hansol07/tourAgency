@@ -27,16 +27,12 @@ public class LoginUser extends BaseEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType. SEQUENCE, generator = "LoginUser_SEQ_GENERATOR")
 	private long id;
-	@NotBlank
     private String loginId;
-    @NotBlank
 	private String pwd;
-    @NotBlank
+  
     private String name;
-    @NotBlank
-    @Email
+
     private String email;
-    @NotBlank
     private String role;	//ROLE_USER , ROLE_ADMIN
     
 	private String phone;

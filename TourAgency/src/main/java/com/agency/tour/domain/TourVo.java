@@ -35,32 +35,24 @@ public class TourVo extends BaseEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType. SEQUENCE, generator = "Tour_SEQ_GENERATOR")
 	private long id;
-	@NotBlank
-	private String title;
-	@NotBlank
-	private String introduce;
 	
-	@Min(value=0)
-	@NotBlank
+	private String title;
+
+	private String introduce;
+
 	private int price;
 	
-	@Future
-	@NotBlank
+
 	private Date startDate;
-	@Future
+
 	private Date endDate;
-	@FutureOrPresent
-	@NotBlank
+
 	private Date endReservationDay;
 	
-	@NotBlank
-	@Min(value=0)
-	private int maximunNum;
-	@Min(value=0)
-	@NotBlank
-	private int minimunNum;
 	
-	@NotNull
+	private int maximunNum;
+	private int minimunNum;
+
 	private String isOneday;
 	
 	private String includeContents;
