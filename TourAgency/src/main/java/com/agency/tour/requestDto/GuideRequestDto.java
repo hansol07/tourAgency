@@ -1,11 +1,11 @@
-package com.agency.tour.dto;
+package com.agency.tour.requestDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class GuideDto {
+public class GuideRequestDto {
 
 	private String name;
 	private String email;

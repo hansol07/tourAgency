@@ -1,4 +1,4 @@
-package com.agency.tour.dto;
+package com.agency.tour.requestDto;
 
 import java.sql.Date;
 
@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class JoinDto {
+public class JoinRequestDto {
 
 	private String loginId;
 	private String pwd;

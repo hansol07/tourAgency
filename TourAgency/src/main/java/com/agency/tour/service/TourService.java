@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import com.agency.tour.domain.Member;
 import com.agency.tour.domain.ReservationVo;
 import com.agency.tour.domain.TourVo;
-import com.agency.tour.dto.TourDto;
 import com.agency.tour.global.ActiveEnum;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.TourRepository;
+import com.agency.tour.requestDto.TourRequestDto;
 
 @Service
 public class TourService {
@@ -19,7 +19,7 @@ public class TourService {
 	@Autowired
 	private TourRepository tourRepository;
 	
-	public ResponseCode registerTour(TourDto dto,long id) {
+	public ResponseCode registerTour(TourRequestDto dto,long id) {
 		TourVo tour= TourVo.builder()
 						.title(dto.getTitle())
 						.introduce(dto.getIntroduce())

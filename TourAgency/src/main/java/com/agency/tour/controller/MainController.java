@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.agency.tour.domain.Member;
-import com.agency.tour.dto.JoinDto;
+import com.agency.tour.requestDto.JoinRequestDto;
 import com.agency.tour.service.JoinService;
 @Controller
 public class MainController {
@@ -27,7 +27,7 @@ public class MainController {
         return "join";
     }
     @PostMapping("/join")
-    public String joinForm(JoinDto dto) {
+    public String joinForm(JoinRequestDto dto) {
     	jService.join(dto);
     	return "redirect:/";
     }

@@ -1,4 +1,4 @@
-package com.agency.tour.dto;
+package com.agency.tour.requestDto;
 
 import java.sql.Date;
 
@@ -6,7 +6,7 @@ import lombok.Data;
 
 
 @Data
-public class TourDto {
+public class TourRequestDto {
 
 
 	private String title;

@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.agency.tour.domain.Member;
 import com.agency.tour.domain.ReservationVo;
-import com.agency.tour.dto.TourReservationDto;
 import com.agency.tour.global.ActiveEnum;
 import com.agency.tour.global.ReservationStatus;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.ReservationRepository;
 import com.agency.tour.repository.TourRepository;
+import com.agency.tour.requestDto.TourReservationRequestDto;
 
 @Service
 public class ReservationService {
@@ -22,7 +22,7 @@ public class ReservationService {
 	@Autowired
 	private TourRepository tourRespository;
 	
-	public ResponseCode reservationTour(TourReservationDto dto, Member member) {
+	public ResponseCode reservationTour(TourReservationRequestDto dto, Member member) {
 		ReservationVo reservation = ReservationVo.builder()
 										.countPeople(dto.getCountPeople())
 										.tourVo(tourRespository.findById(dto.getTourId()).orElse(null))

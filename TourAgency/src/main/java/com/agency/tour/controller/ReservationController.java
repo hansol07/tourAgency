@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.agency.tour.domain.Member;
-import com.agency.tour.dto.TourReservationDto;
+import com.agency.tour.requestDto.TourReservationRequestDto;
 import com.agency.tour.service.ReservationService;
 
 @Controller
@@ -20,7 +20,7 @@ public class ReservationController {
 	private ReservationService reservationService;
 	
 	@PostMapping("/tour/reservation")
-	public String reservationTour(TourReservationDto dto, @AuthenticationPrincipal Member member) {
+	public String reservationTour(TourReservationRequestDto dto, @AuthenticationPrincipal Member member) {
 		reservationService.reservationTour(dto, member);
 		return "redirect:/tour/";
 	}

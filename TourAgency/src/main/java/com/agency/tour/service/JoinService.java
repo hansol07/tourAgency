@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 
 import com.agency.tour.domain.LoginUser;
 import com.agency.tour.domain.Role;
-import com.agency.tour.dto.JoinDto;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.MemberRepository;
+import com.agency.tour.requestDto.JoinRequestDto;
 
 @Service
 public class JoinService {
@@ -16,7 +16,7 @@ public class JoinService {
 	private MemberRepository mRepo;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 	
-	public ResponseCode join(JoinDto dto) {
+	public ResponseCode join(JoinRequestDto dto) {
 		LoginUser user = LoginUser.builder()
 							.loginId(dto.getLoginId())
 							.pwd(bCryptPasswordEncoder.encode(dto.getPwd()))

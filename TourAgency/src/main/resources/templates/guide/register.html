@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>투어등록 페이지</h1>
+<hr/>
+<form action="/tour/register" method="post">
+  <input type="text" name="title" placeholder="투어제목" /> <br/>
+  <textarea name="introduce" placeholder="소개글"></textarea> <br/>
+  <input type="number" name="price" placeholder="가격" /> <br/>
+  <input type="date" name="startDate" /> <br/>
+  <input type="date" name="endDate" /> <br/>
+  <input type="date" name="endReservationDay" /> <br/>
+  <input type="number" name="maximunNum" placeholder="최소인원" /> <br/>
+  <input type="number" name="minimunNum" placeholder="최대인원" /> <br/>
+  <select name="isOneday">
+  <option value="Y">당일투어</option>
+  <option value="N">장기투어</option>
+  </select><br/>
+ <textarea name="includeContents" placeholder="포함사항"></textarea> <br/>
+ <textarea name="notIncludeContents" placeholder="불포함사항"></textarea> <br/>
+ <textarea name="course" placeholder="코스"></textarea> <br/>
+ <textarea name="timeInformation" placeholder="시간일정정보"></textarea> <br/>
+ 
+  <button>투어등록</button>
+</form>
+</body>
+</html>

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.agency.tour.domain.Member;
-import com.agency.tour.dto.TourDto;
+import com.agency.tour.requestDto.TourRequestDto;
 import com.agency.tour.service.TourService;
 
 @Controller
@@ -29,7 +29,7 @@ public class TourController {
 		return "tour/tourList";
 	}
 	@PostMapping("/tour/register")
-	public String joinForm(TourDto dto, @AuthenticationPrincipal Member member) {
+	public String joinForm(TourRequestDto dto, @AuthenticationPrincipal Member member) {
 		tourService.registerTour(dto,member.getId());
 		return "redirect:/";
 	}
