@@ -20,7 +20,7 @@ public class GuideController {
 	}
     @GetMapping("/guide/register")
     public String guideRegisterPage() {
-    	return "/guide/register";
+    	return "/guide/guideRegister";
     }
     @PostMapping("/guide/register")
     public String guideRegister() {

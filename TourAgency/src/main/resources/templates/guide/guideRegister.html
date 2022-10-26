@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>투어등록 페이지</h1>
+<hr/>
+<form action="/guide/register" method="post">
+  <input type="text" name="name" placeholder="가이드 이름" /> <br/>
+  <input type="text" name="email" placeholder="이메일" /> <br/>
+  <input type="text" name="phone" placeholder="전화번호" /> <br/>
+  <textarea name="introduce" placeholder="소개글"></textarea> <br/>
+  <button>투어등록</button>
+</form>
+</body>
+</html>

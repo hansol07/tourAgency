@@ -9,28 +9,25 @@
   <title>Document</title>
 </head>
 <body>
-<h1>예약 목록</h1>
+<h1>가이드 목록</h1>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">no</th>
-      <th scope="col">투어이름</th>
-      <th scope="col">투어시작날짜</th>
-      <th scope="col">투어종료날짜</th>
-      <th scope="col">신청인원</th>
-      <th scope="col">예약상태</th>
-      <th scope="col">예약취소</th>
+      <th scope="col">이름</th>
+      <th scope="col">이메일</th>
+      <th scope="col">전화번호</th>
+      <th scope="col">소개</th>
+
     </tr>
   </thead>
   <tbody>
     <tr th:each="list,i: ${list}">
       <th th:text="${i.count}"></th>
-      <td  th:text="${list.tourVo.title}"> </td>
-      <td  th:text="${list.tourVo.startDate}"></td>
-      <td  th:text="${list.tourVo.endDate}"></td>
-      <td  th:text="${list.countPeople}"></td>
-      <td  th:text="${list.reservationStatus}"></td>
-      <td ><a th:href="@{/tour/reservation/cancel/{id} (id=${list.id})}">예약취소</a></td>
+      <td  th:text="${list.name}"> </td>
+      <td  th:text="${list.email}"></td>
+      <td  th:text="${list.phone}"></td>
+      <td  th:text="${list.introduce}"></td>
     </tr>
 
   </tbody>
