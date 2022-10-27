@@ -9,4 +9,6 @@ import com.agency.tour.repository.GuideRepository;
 public class GuideService {
 	@Autowired
 	private GuideRepository gRepo;
+	
+	
 }
