@@ -1,23 +1,30 @@
 package com.agency.tour.service;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.agency.tour.config.ModelMapperConfig;
 import com.agency.tour.domain.Member;
-import com.agency.tour.domain.ReservationVo;
+
 import com.agency.tour.domain.TourVo;
 import com.agency.tour.global.ActiveEnum;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.TourRepository;
 import com.agency.tour.request.TourRequestDto;
+import com.agency.tour.response.TourResponseDto;
 
 @Service
 public class TourService {
 
 	@Autowired
 	private TourRepository tourRepository;
+	@Autowired
+	private ModelMapper modelMapper;
 	
 	public ResponseCode registerTour(TourRequestDto dto,long id) {
 		TourVo tour= TourVo.builder()
@@ -43,8 +50,11 @@ public class TourService {
 		return ResponseCode.OK;
 	}
 	
-	public List<TourVo> getTourList() {
-		return tourRepository.findAllByIsActive(ActiveEnum.Y.toString());	
+	public List<TourResponseDto> getTourList() {
+		List<TourVo> tourVoList= tourRepository.findAllByIsActive(ActiveEnum.Y.toString());	
+		List<TourResponseDto> tourList = tourVoList.stream().map(tourVo ->modelMapper.map(tourVo, TourResponseDto.class)).collect(Collectors.toList());
+		System.out.println(tourList);
+		return tourList;
 	}
 	public TourVo getTourDetailList(String id) {
 		long tourId = Long.parseLong(id);

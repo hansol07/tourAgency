@@ -23,6 +23,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Getter
 @Entity
@@ -30,6 +31,7 @@ import lombok.NoArgsConstructor;
 @SequenceGenerator(name="Tour_SEQ_GENERATOR",sequenceName = "Tour_SEQ" ,initialValue = 1,allocationSize = 1)
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class TourVo extends BaseEntity{
 
 	@Id
