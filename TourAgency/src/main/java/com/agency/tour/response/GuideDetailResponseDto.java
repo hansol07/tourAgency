@@ -1,5 +1,5 @@
 package com.agency.tour.response;
 
-public class GuideResponseDto {
+public class GuideDetailResponseDto {
 
 }

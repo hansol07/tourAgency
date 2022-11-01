@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.ToString;
 
 @Data
-public class TourResponseDto {
+public class TourListResponseDto {
 	
 	private long id;
 	private String title;

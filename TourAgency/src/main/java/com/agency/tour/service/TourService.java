@@ -16,7 +16,7 @@ import com.agency.tour.global.ActiveEnum;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.TourRepository;
 import com.agency.tour.request.TourRequestDto;
-import com.agency.tour.response.TourResponseDto;
+import com.agency.tour.response.TourListResponseDto;
 
 @Service
 public class TourService {
@@ -50,9 +50,9 @@ public class TourService {
 		return ResponseCode.OK;
 	}
 	
-	public List<TourResponseDto> getTourList() {
+	public List<TourListResponseDto> getTourList() {
 		List<TourVo> tourVoList= tourRepository.findAllByIsActive(ActiveEnum.Y.toString());	
-		List<TourResponseDto> tourList = tourVoList.stream().map(tourVo ->modelMapper.map(tourVo, TourResponseDto.class)).collect(Collectors.toList());
+		List<TourListResponseDto> tourList = tourVoList.stream().map(tourVo ->modelMapper.map(tourVo, TourListResponseDto.class)).collect(Collectors.toList());
 		System.out.println(tourList);
 		return tourList;
 	}
