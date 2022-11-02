@@ -16,6 +16,7 @@ import com.agency.tour.global.ActiveEnum;
 import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.TourRepository;
 import com.agency.tour.request.TourRequestDto;
+import com.agency.tour.response.TourDetailResponseDto;
 import com.agency.tour.response.TourListResponseDto;
 
 @Service
@@ -56,9 +57,11 @@ public class TourService {
 		System.out.println(tourList);
 		return tourList;
 	}
-	public TourVo getTourDetailList(String id) {
+	public TourDetailResponseDto getTourDetailList(String id) {
 		long tourId = Long.parseLong(id);
-		return tourRepository.findById(tourId).orElse(null);
+		TourVo tour = tourRepository.findById(tourId).orElse(null);
+		TourDetailResponseDto tourResponsedto = modelMapper.map(tour, TourDetailResponseDto.class);
+		return tourResponsedto;
 	}
 	public ResponseCode deleteTour(Member member, String id) {
 		TourVo tour=tourRepository.findById(Long.parseLong(id)).orElse(null);
