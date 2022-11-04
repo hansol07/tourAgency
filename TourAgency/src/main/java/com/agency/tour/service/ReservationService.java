@@ -1,7 +1,9 @@
 package com.agency.tour.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.ReservationRepository;
 import com.agency.tour.repository.TourRepository;
 import com.agency.tour.request.TourReservationRequestDto;
+import com.agency.tour.response.ReservationListResponseDto;
 
 @Service
 public class ReservationService {
@@ -21,24 +24,28 @@ public class ReservationService {
 	private ReservationRepository reservationRepository;
 	@Autowired
 	private TourRepository tourRespository;
-	
+	@Autowired
+	private ModelMapper modelMapper;
+
 	public ResponseCode reservationTour(TourReservationRequestDto dto, Member member) {
 		ReservationVo reservation = ReservationVo.builder()
-										.countPeople(dto.getCountPeople())
-										.tourVo(tourRespository.findById(dto.getTourId()).orElse(null))
-										.requireMent(dto.getRequireMent())
-										.reservationStatus(ReservationStatus.APPLY.toString())
-										.userId(member.getId())
-										.isActive(ActiveEnum.Y.toString())
-										.createId(member.getId())
-										.updateId(member.getId())
-										.build();
+				.countPeople(dto.getCountPeople())
+				.tourVo(tourRespository.findById(dto.getTourId()).orElse(null))
+				.requireMent(dto.getRequireMent())
+				.reservationStatus(ReservationStatus.APPLY.toString())
+				.userId(member.getId())
+				.isActive(ActiveEnum.Y.toString())
+				.createId(member.getId())
+				.updateId(member.getId())
+				.build();
 		reservationRepository.save(reservation);
 		return ResponseCode.OK;
 	}
 
-	public List<ReservationVo> findMyReservation(Member member) {
-		return reservationRepository.findAllByUserIdAndIsActive(member.getId(),ActiveEnum.Y.toString());
+	public 	List<ReservationListResponseDto> findMyReservation(Member member) {
+		List<ReservationVo> voList = reservationRepository.findAllByUserIdAndIsActive(member.getId(),ActiveEnum.Y.toString());
+		List<ReservationListResponseDto> list = voList.stream().map(reservationVo ->modelMapper.map(reservationVo,ReservationListResponseDto.class)).collect(Collectors.toList());
+		return list;
 	}
 
 	public ResponseCode cancelReservation(Member member, String id) {
