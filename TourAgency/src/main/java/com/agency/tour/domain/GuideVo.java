@@ -31,12 +31,10 @@ public class GuideVo extends BaseEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType. SEQUENCE, generator = "Guide_SEQ_GENERATOR")
 	private Long id;
-	
 	private String name;
 	private String email;
 	private String phone;
 	private String introduce;
- 
 	private String isActive;
     private long updateId;
     private long createId;
