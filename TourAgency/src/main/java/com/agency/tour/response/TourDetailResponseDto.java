@@ -1,6 +1,7 @@
 package com.agency.tour.response;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.agency.tour.domain.TourFileVo;
