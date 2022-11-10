@@ -1,7 +1,7 @@
 package com.agency.tour.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +44,7 @@ public class ReservationService {
 
 	public 	List<ReservationListResponseDto> findMyReservation(Member member) {
 		List<ReservationVo> voList = reservationRepository.findAllByUserIdAndIsActive(member.getId(),ActiveEnum.Y.toString());
-		List<ReservationListResponseDto> list = voList.stream().map(reservationVo ->modelMapper.map(reservationVo,ReservationListResponseDto.class)).collect(Collectors.toList());
+		List<ReservationListResponseDto> list = voList.stream().map(reservationVo ->modelMapper.map(reservationVo,ReservationListResponseDto.class)).toList();
 		return list;
 	}
 

@@ -2,7 +2,7 @@ package com.agency.tour.service;
 
 import java.util.List;
 import java.util.stream.Collector;
-import java.util.stream.Collectors;
+
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +53,7 @@ public class TourService {
 	
 	public List<TourListResponseDto> getTourList() {
 		List<TourVo> tourVoList= tourRepository.findAllByIsActive(ActiveEnum.Y.toString());	
-		List<TourListResponseDto> tourList = tourVoList.stream().map(tourVo ->modelMapper.map(tourVo, TourListResponseDto.class)).collect(Collectors.toList());
+		List<TourListResponseDto> tourList = tourVoList.stream().map(tourVo ->modelMapper.map(tourVo, TourListResponseDto.class)).toList();
 		System.out.println(tourList);
 		return tourList;
 	}

@@ -12,10 +12,11 @@ import com.agency.tour.service.GuideService;
 public class GuideController {
 
 	@Autowired
-	private GuideService gService;
+	private GuideService guideService;
 	
 	@GetMapping("/guide/list")
 	public String guideList(Model model) {
+		model.addAttribute("list",guideService.getGuideList());
 		return "/guide/list";
 	}
     @GetMapping("/guide/register")
