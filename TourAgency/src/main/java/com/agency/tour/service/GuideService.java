@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.agency.tour.domain.GuideVo;
+import com.agency.tour.domain.Member;
 import com.agency.tour.global.ActiveEnum;
+import com.agency.tour.global.ResponseCode;
 import com.agency.tour.repository.GuideRepository;
+import com.agency.tour.request.GuideRequestDto;
 import com.agency.tour.response.GuideResponseDto;
 
 @Service
@@ -22,5 +25,17 @@ public class GuideService {
 		List<GuideVo> guideVoList = gRepo.findAllByIsActive(ActiveEnum.Y.toString());
 		List<GuideResponseDto> guideResponseList = guideVoList.stream().map(guideVo ->modelMapper.map(guideVo, GuideResponseDto.class)).toList();
 		return guideResponseList;
+	}
+	public ResponseCode insertGuide(GuideRequestDto dto , Member member) {
+		GuideVo vo = GuideVo.builder()
+						.name(dto.getName())
+						.email(dto.getEmail())
+						.phone(dto.getPhone())
+						.introduce(dto.getIntroduce())
+						.isActive(ActiveEnum.Y.toString())
+						.createId(member.getId())
+						.updateId(member.getId())
+						.build();
+		return ResponseCode.OK;
 	}
 }
