@@ -24,7 +24,7 @@ public class GuideController {
 	}
     @GetMapping("/guide/register")
     public String guideRegisterPage() {
-    	return "/guide/guideRegister";
+    	return "/guide/register";
     }
     @PostMapping("/guide/register")
     public String guideRegister(GuideRequestDto dto, @AuthenticationPrincipal Member member) {

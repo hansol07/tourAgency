@@ -14,5 +14,6 @@ public class GuideResponseDto {
 	private String name;
 	private String email;
 	private String phone;
+	private String introduce;
 	private List<GuideFileVo> guideFileVo = new ArrayList<>();
 }

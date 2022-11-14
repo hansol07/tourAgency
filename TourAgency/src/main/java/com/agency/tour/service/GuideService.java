@@ -27,7 +27,7 @@ public class GuideService {
 		return guideResponseList;
 	}
 	public ResponseCode insertGuide(GuideRequestDto dto , Member member) {
-		GuideVo vo = GuideVo.builder()
+		GuideVo guideVo = GuideVo.builder()
 						.name(dto.getName())
 						.email(dto.getEmail())
 						.phone(dto.getPhone())
@@ -36,6 +36,7 @@ public class GuideService {
 						.createId(member.getId())
 						.updateId(member.getId())
 						.build();
+		gRepo.save(guideVo);
 		return ResponseCode.OK;
 	}
 }
