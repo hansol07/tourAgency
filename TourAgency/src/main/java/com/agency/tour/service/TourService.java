@@ -57,12 +57,14 @@ public class TourService {
 		System.out.println(tourList);
 		return tourList;
 	}
+	
 	public TourDetailResponseDto getTourDetailList(String id) {
 		long tourId = Long.parseLong(id);
 		TourVo tour = tourRepository.findById(tourId).orElse(null);
 		TourDetailResponseDto tourResponsedto = modelMapper.map(tour, TourDetailResponseDto.class);
 		return tourResponsedto;
 	}
+	
 	public ResponseCode deleteTour(Member member, String id) {
 		TourVo tour=tourRepository.findById(Long.parseLong(id)).orElse(null);
 		tour.setIsActive(ActiveEnum.N.toString());
