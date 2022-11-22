@@ -78,6 +78,9 @@ public class TourVo extends BaseEntity{
 	public void setUpdateId(long updateId) {
 		this.updateId = updateId;
 	}
+	public void setCurrentPeople(int currentPeople) {
+		this.currentPeople = currentPeople;
+	}
 	
 	
 }
