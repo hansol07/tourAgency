@@ -58,11 +58,12 @@ public class ReservationService {
 		List<ReservationListResponseDto> list = voList.stream().map(reservationVo ->modelMapper.map(reservationVo,ReservationListResponseDto.class)).toList();
 		return list;
 	}
-
+	@Transactional
 	public ResponseCode cancelReservation(Member member, String id) {
 		ReservationVo reservation=reservationRepository.findById(Long.parseLong(id)).orElse(null);
 		reservation.setIsActive(ActiveEnum.N.toString());
 		reservation.setUpdateId(member.getId());
+		currentPeoplePlus(reservation.getTourVo().getId(), -reservation.getCountPeople());
 		reservationRepository.save(reservation);
 		return ResponseCode.OK;
 	}
