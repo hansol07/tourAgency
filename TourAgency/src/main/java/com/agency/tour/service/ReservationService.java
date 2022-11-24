@@ -47,17 +47,20 @@ public class ReservationService {
 		currentPeoplePlus(dto.getTourId(), dto.getCountPeople());
 		return ResponseCode.OK;
 	}
+	
 	public ResponseCode currentPeoplePlus(long id, int plusPeople) {
 		TourVo vo=tourRespository.findById(id).orElse(null);
 		vo.setCurrentPeople(vo.getCurrentPeople()+plusPeople);
 		tourRespository.save(vo);
 		return ResponseCode.OK;
 	}
+	
 	public 	List<ReservationListResponseDto> findMyReservation(Member member) {
 		List<ReservationVo> voList = reservationRepository.findAllByUserIdAndIsActive(member.getId(),ActiveEnum.Y.toString());
 		List<ReservationListResponseDto> list = voList.stream().map(reservationVo ->modelMapper.map(reservationVo,ReservationListResponseDto.class)).toList();
 		return list;
 	}
+	
 	@Transactional
 	public ResponseCode cancelReservation(Member member, String id) {
 		ReservationVo reservation=reservationRepository.findById(Long.parseLong(id)).orElse(null);
