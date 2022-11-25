@@ -27,7 +27,7 @@ public class ReservationService {
 	@Autowired
 	private ReservationRepository reservationRepository;
 	@Autowired
-	private TourRepository tourRespository;
+	private TourRepository tourRepository;
 	@Autowired
 	private ModelMapper modelMapper;
 
@@ -35,7 +35,7 @@ public class ReservationService {
 	public ResponseCode reservationTour(TourReservationRequestDto dto, Member member) {
 		ReservationVo reservation = ReservationVo.builder()
 				.countPeople(dto.getCountPeople())
-				.tourVo(tourRespository.findById(dto.getTourId()).orElse(null))
+				.tourVo(tourRepository.findById(dto.getTourId()).orElse(null))
 				.requireMent(dto.getRequireMent())
 				.reservationStatus(ReservationStatus.APPLY.toString())
 				.userId(member.getId())
@@ -49,9 +49,9 @@ public class ReservationService {
 	}
 	
 	public ResponseCode currentPeoplePlus(long id, int plusPeople) {
-		TourVo vo=tourRespository.findById(id).orElse(null);
+		TourVo vo=tourRepository.findById(id).orElse(null);
 		vo.setCurrentPeople(vo.getCurrentPeople()+plusPeople);
-		tourRespository.save(vo);
+		tourRepository.save(vo);
 		return ResponseCode.OK;
 	}
 	
