@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import com.agency.tour.domain.Role;
 
@@ -15,8 +16,10 @@ import lombok.Setter;
 public class JoinRequestDto {
 
 	@NotBlank
+	@Pattern(regexp="[a-zA-Z1-9]{3,10}", message = "아이디는 영어와 숫자로 포함해서 3~10자리 이내로 입력해주세요.")
 	private String loginId;
 	@NotBlank
+	@Pattern(regexp="[a-zA-Z1-9]{3,12}", message = "비밀번호는 영어와 숫자로 포함해서 3~12자리 이내로 입력해주세요.")
 	private String pwd;
     @NotBlank
     @Email
