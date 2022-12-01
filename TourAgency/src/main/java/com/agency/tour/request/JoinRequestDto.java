@@ -29,6 +29,7 @@ public class JoinRequestDto {
 	private Date birth;
 	private String sex;
 	@NotBlank
+	@Pattern(regexp="[a-zA-Z가-힣]{1,15}", message = "올바른 이름을 입력해 주세요.")
 	private String name;
 	private final String role =Role.ROLE_USER.toString();
 	private final String isLock="N";
