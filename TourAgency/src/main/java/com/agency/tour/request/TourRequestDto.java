@@ -6,6 +6,7 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import com.sun.istack.NotNull;
 
@@ -16,6 +17,7 @@ import lombok.Data;
 public class TourRequestDto {
 
 	@NotBlank
+	@Pattern(regexp="[가-힣a-zA-Z]{1,100}", message = "올바른 제목을 입력해주세요.")
 	private String title;
 	@NotBlank
 	private String introduce;
