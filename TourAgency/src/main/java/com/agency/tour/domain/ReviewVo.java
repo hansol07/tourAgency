@@ -28,7 +28,6 @@ public class ReviewVo extends BaseEntity{
 	private int score;
 	private String contents;
 	
-
 	private long reservationId;
 	
 	private String isActive;
