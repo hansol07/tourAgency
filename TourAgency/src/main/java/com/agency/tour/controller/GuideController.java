@@ -22,10 +22,12 @@ public class GuideController {
 		model.addAttribute("list",guideService.getGuideList());
 		return "/guide/list";
 	}
+	
     @GetMapping("/guide/register")
     public String guideRegisterPage() {
     	return "/guide/register";
     }
+    
     @PostMapping("/guide/register")
     public String guideRegister(GuideRequestDto dto, @AuthenticationPrincipal Member member) {
     	guideService.insertGuide(dto, member);
