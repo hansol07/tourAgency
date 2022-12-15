@@ -31,5 +31,9 @@ public class MainController {
     	jService.join(dto);
     	return "redirect:/";
     }
+    @GetMapping("/lotto/lotto")
+    public String lotto() {
+    	return "/lotto/lotto";
+    }
    
 }
