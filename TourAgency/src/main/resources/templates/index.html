@@ -69,8 +69,22 @@
                             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="my-3">로또</h4>
-                        <p class="text-muted"></p>
-                        <button class="button">오늘의 번호</button>
+                       <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">로또</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="list,i: ${lottoList}">
+      <th th:text="${i.count}"></th>
+      <td  th:text="${list}"> </td>
+  
+    </tr>
+
+  </tbody>
+</table>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
