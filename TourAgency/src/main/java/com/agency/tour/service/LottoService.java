@@ -5,12 +5,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.agency.tour.response.LottoGroupListResponseDto;
+
 @Service
 public class LottoService {
 
 	
-	public List<List<Integer>> makeLottoNum(){
+	public LottoGroupListResponseDto makeLottoNum(){
 		List<List<Integer>> groupList = new ArrayList<>();
+		LottoGroupListResponseDto result = new LottoGroupListResponseDto();
 		for(int i = 0 ; i<5;i++) {
 			List<Integer> list = new ArrayList<>();
 			while(true) {
@@ -24,6 +27,7 @@ public class LottoService {
 			}	
 			groupList.add(list);
 		}
-		return groupList;
+		result.setList(groupList);
+		return result;
 	}
 	}

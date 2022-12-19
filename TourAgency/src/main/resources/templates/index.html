@@ -77,7 +77,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr th:each="list,i: ${lottoList}">
+    <tr th:each="list,i: ${lottoList.list}">
       <th th:text="${i.count}"></th>
       <td  th:text="${list}"> </td>
   
