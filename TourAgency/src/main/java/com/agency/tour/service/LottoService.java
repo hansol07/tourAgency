@@ -20,7 +20,11 @@ public class LottoService {
 				if(list.size()==6) {
 					break;
 				}
-				int num = (int)(Math.random()*45)+1;
+				int time = (int)(Math.random()*100+1);
+				int num = 0;
+				for(int j=0 ; j<time ; j++) {
+					num = (int)(Math.random()*45)+1;
+				}
 				if(!list.contains(num)) {
 					list.add(num);
 				}
