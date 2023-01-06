@@ -11,7 +11,7 @@ import com.agency.tour.response.LottoGroupListResponseDto;
 public class LottoService {
 
 	
-	public LottoGroupListResponseDto makeLottoNum(){
+	public LottoGroupListResponseDto makeLottoNum(String id){
 		List<List<Integer>> groupList = new ArrayList<>();
 		LottoGroupListResponseDto result = new LottoGroupListResponseDto();
 		for(int i = 0 ; i<5;i++) {

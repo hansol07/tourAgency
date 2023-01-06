@@ -21,7 +21,7 @@ public class MainController {
 	private LottoService lottoService;
 	@GetMapping("/")
 	public String main(@AuthenticationPrincipal Member member, Model model) {
-		model.addAttribute("lottoList",lottoService.makeLottoNum());
+		model.addAttribute("lottoList",lottoService.makeLottoNum(member.getUsername()));
 		System.out.println(member.getId()+member.getEmail());
 		return "index";
 	}
